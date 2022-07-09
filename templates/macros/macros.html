@@ -5,9 +5,16 @@
             {% continue %}
         {% endif -%}
 
-        <section class="list-item">
-            <h1 class="title">
-                <a href={{ page.permalink }}>{{page.title}}</a>
+        {{ self::post_item(page=page) }}
+    
+    {% endfor -%}
+    </ul>
+{% endmacro list_posts %}
+    
+{% macro post_item(page) %}
+    <section class="list-item">
+      <h1 class="title">
+        <a href={{ page.permalink }}>{{page.title}}</a>
             </h1>
 
             <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
@@ -26,12 +33,9 @@
             {% if not hide_read_more %}
                 <a class="readmore" href={{ page.permalink }}>Read more ⟶</a>
             {% endif %}
-        </section>
-
-    {% endfor -%}
-    </ul>
-{% endmacro list_posts %}
-
+    </section>
+{% endmacro post_item %}
+    
 {% macro tags(page, short=false) %}
     {%- if page.taxonomies and page.taxonomies.tags %}
         <span class="post-tags-inline">
