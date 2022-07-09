@@ -13,3 +13,22 @@
   src: url('../fonts/SpaceGrotesk/SpaceGrotesk-Regular.ttf'), local('ttf');
   font-display: swap;
 }
+
+@font-face {
+	font-family: 'Iosevka Aile Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('../static/fonts/Iosevka-Aile/iosevka-aile-regular.ttf'), local('ttf');
+}
+
+@font-face {
+	font-family: 'Iosevka Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('../static/fonts/Iosevka/iosevka-regular.ttf'), loca\l('ttf');
+}
+
