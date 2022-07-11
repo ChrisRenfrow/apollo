@@ -32,3 +32,22 @@
 	src: url('../fonts/Iosevka/iosevka-regular.ttf'), local('ttf');
 }
 
+@font-face {
+    font-family: 'Iosevka Custom Web';
+    font-display: swap;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    src: url('../fonts/IosevkaCustom/ttf/iosevka-custom-regular.ttf') format('truetype')
+         , url('../fonts/IosevkaCustom/woff2/iosevka-custom-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Iosevka Custom Web';
+    font-display: swap;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    src: url('../fonts/IosevkaCustom/ttf/iosevka-custom-bold.ttf') format('truetype')
+         , url('../fonts/IosevkaCustom/woff2/iosevka-custom-bold.woff2') format('woff2');
+}
