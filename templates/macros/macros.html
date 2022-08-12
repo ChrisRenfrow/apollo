@@ -14,7 +14,7 @@
 {% macro post_item(page) %}
     <section class="list-item">
       <h1 class="title">
-        <a href={{ page.permalink }}>{{page.title}}</a>
+        <a href={{ page.permalink }}>{{ page.title | lower }}</a>
             </h1>
 
             <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
@@ -24,7 +24,7 @@
                 {% if page.description %}
                     {{ page.description }}
                 {% elif page.summary %}
-                    {{ page.summary | safe }}
+                    {{ page.summary | safe | striptags }}
                 {% else %}
                     {% set hide_read_more = true %}
                 {% endif %}
@@ -56,7 +56,7 @@
 
 {% macro page_header(title) %}
     <div class="page-header">
-        {{ title }}<span class="primary-color" style="font-size: 1.6em">.</span>
+        {{ title | lower }}<span class="primary-color" style="font-size: 1.6em">.</span>
     </div>
 {% endmacro content %}
 
@@ -64,7 +64,6 @@
 <main>
     <article>
         <div class="title">
-            {#<h1 class="title">{{ page.title }}</h1>#}
             {{ post_macros::page_header(title=page.title) }}
 
             {% if page.date %}
@@ -88,23 +87,23 @@
         {# Optional table of contents #}
         {% if config.extra.toc | default(value=false) %}
             {% if page.toc %}
-                <h1>Table of Contents</h1>
+                <h1>table of contents</h1>
                 <ul>
                 {% for h1 in page.toc %}
                     <li>
-                        <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+                        <a href="{{ h1.permalink | safe }}">{{ h1.title | lower }}</a>
                         {% if h1.children %}
                             <ul>
                                 {% for h2 in h1.children %}
                                     <li>
-                                        <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                                        <a href="{{ h2.permalink | safe }}">{{ h2.title | lower }}</a>
                                     </li>
 
                                     {% if h2.children %}
                                     <ul>
                                         {% for h3 in h2.children %}
                                             <li>
-                                                <a href="{{ h3.permalink | safe }}">{{ h3.title }}</a>
+                                                <a href="{{ h3.permalink | safe }}">{{ h3.title | lower }}</a>
                                             </li>
                                         {% endfor %}
                                     </ul>
