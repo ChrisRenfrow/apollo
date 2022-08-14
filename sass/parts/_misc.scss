@@ -11,6 +11,30 @@
   background-color: var(--primary-color);
 }
 
+:target {
+    color: var(--primary-color) !important;
+    text-decoration: underline;
+    text-decoration-thickness: 10%;
+}
+
+.footnote-definition {
+    color: #999;
+    display: flex;
+    align-items: baseline;
+}
+
+.footnote-definition p {
+    margin: 0.5em;
+}
+
+.footnote-definition-label {
+    padding-right: 1%;
+}
+
+.footnote-definition-label::after {
+    content: ".";
+}
+
 ::-moz-selection {
   background: var(--primary-color);
   color: var(--hover-color);
@@ -40,9 +64,10 @@ blockquote {
 }
 
 a {
-  border-bottom: 3px solid var(--primary-color);
-  color: inherit;
-  text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+    text-decoration-thickness: 10%;
+    color: inherit;
 }
 
 a:hover {

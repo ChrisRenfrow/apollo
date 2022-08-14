@@ -3,7 +3,9 @@
 }
 
 .tags a {
-  border-bottom: 3px solid var(--primary-color);
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  text-decoration-thickness: 10%;
 }
 
 .tags a:hover {
