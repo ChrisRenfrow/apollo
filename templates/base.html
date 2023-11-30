@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 {% include "partials/header.html" %}
-
 <body>
     <div class="content">
         {% include "partials/nav.html" %}
@@ -12,6 +11,10 @@
         {% block main_content %}
             Nothing here?!
         {% endblock main_content %}
+        <footer>
+            {% block footer %}
+            {% endblock footer %}
+        </footer>
     </div>
 </body>
 
