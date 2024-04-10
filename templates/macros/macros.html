@@ -1,12 +1,7 @@
 {% macro list_posts(pages) %}
     <ul>
     {%- for page in pages %}
-        {%- if page.draft %}
-            {% continue %}
-        {% endif -%}
-
         {{ self::post_item(page=page) }}
-    
     {% endfor -%}
     </ul>
 {% endmacro list_posts %}
