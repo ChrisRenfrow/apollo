@@ -8,26 +8,25 @@
     
 {% macro post_item(page) %}
     <section class="list-item">
-      <h1 class="title">
-        <a href={{ page.permalink }}>{{ page.title | lower }}</a>
-            </h1>
+        <h1 class="title">
+            <a href={{ page.permalink }}>{{ page.title | lower }}</a>
+        </h1>
+        <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
 
-            <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
-
-            <br />
-            <div class="description">
-                {% if page.description %}
-                    {{ page.description }}
-                {% elif page.summary %}
-                    {{ page.summary | safe | striptags }}
-                {% else %}
-                    {% set hide_read_more = true %}
-                {% endif %}
-            </div>
-
-            {% if not hide_read_more %}
-                <a class="readmore" href={{ page.permalink }}>Read more ⟶</a>
+        <br />
+        <div class="description">
+            {% if page.description %}
+                {{ page.description }}
+            {% elif page.summary %}
+                {{ page.summary | safe | striptags }}
+            {% else %}
+                {% set hide_read_more = true %}
             {% endif %}
+        </div>
+
+        {% if not hide_read_more %}
+        <a class="readmore" href={{ page.permalink }}>Read more ⟶</a>
+        {% endif %}
     </section>
 {% endmacro post_item %}
     
