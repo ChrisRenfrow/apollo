@@ -12,8 +12,8 @@
             <a href={{ page.permalink }}>{{ page.title | lower }}</a>
         </h1>
         <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
-
         <br />
+        {{ self::categories(page=page) }}
         <div class="description">
             {% if page.description %}
                 {{ page.description }}
@@ -50,6 +50,20 @@
     {% endif -%}
 {% endmacro tags %}
 
+{% macro categories(page) %}
+    {%- if page.taxonomies and page.taxonomies.categories -%}
+        <span class="post-tags-inline">
+            {%- set sep = "," -%}
+            {%- for cat in page.taxonomies.categories -%}
+                <a class="post-tag" href="{{ get_taxonomy_url(kind='categories', name=cat) | safe }}">#{{ cat }}</a>
+                {%- if not loop.last -%}
+                    {{ sep | safe }}
+                {% endif -%}
+            {%- endfor -%}
+        </span>
+    {% endif -%}
+{% endmacro categories %}
+
 {% macro page_header(title) %}
     <div class="page-header">
         {{ title | lower }}<span class="primary-color" style="font-size: 1.6em">.</span>
@@ -61,7 +75,7 @@
     <article>
         <div class="title">
             {{ post_macros::page_header(title=page.title) }}
-
+            {{ self::categories(page=page) }}
             {% if page.date %}
                 <div class="meta">
                     Posted on {{ page.date | date(format="%Y-%m-%d") }}
