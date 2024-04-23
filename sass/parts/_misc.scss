@@ -18,13 +18,14 @@
 }
 
 .footnote-definition {
-    color: #999;
+    color: #888;
     display: flex;
     align-items: baseline;
 }
 
 .footnote-definition p {
-    margin: 0.5em;
+    font-size: smaller;
+    margin: 0.2em;
 }
 
 .footnote-definition-label {
