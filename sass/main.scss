@@ -10,9 +10,12 @@
   --border-color: var(--bg-1);
 
   /* Fonts */
-  --text-font: 'Iosevka Custom Web';
-  --header-font: 'Iosevka Custom Web';
-  --code-font: 'Iosevka Custom Web';
+  --text-font: "Iosevka Custom Web";
+  --header-font: "Iosevka Custom Web";
+  --code-font: "Iosevka Custom Web";
+  --media-lg-font-size: x-large;
+  --media-md-font-size: large;
+  --media-sm-font-size: medium;
 }
 
 html {
@@ -29,20 +32,20 @@ html {
   word-wrap: break-word;
 }
 
-@media all and (min-width:640px) {
+@media all and (min-width: 640px) {
   html {
-    font-size: 16.5px;
+    font-size: var(--media-sm-font-size);
   }
 }
 
-@media all and (min-width:720px) {
+@media all and (min-width: 720px) {
   html {
-    font-size: 17px;
+    font-size: var(--media-md-font-size);
   }
 }
 
-@media all and (min-width:960px) {
+@media all and (min-width: 960px) {
   html {
-    font-size: 18px;
+    font-size: var(--media-lg-font-size);
   }
 }

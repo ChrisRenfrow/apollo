@@ -30,6 +30,18 @@ header .main {
   margin-bottom: 10px;
 }
 
+// This ensures nav items aren't cut-off at smaller sizes when wrapping
+header > nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav > a {
+  // Ensures the onhover highlight does not extend to the full height of the container
+  height: fit-content;
+  margin-left: 0.5em;
+}
+
 .meta {
   color: #999;
   letter-spacing: -0.5px;
